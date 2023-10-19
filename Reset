@@ -1,0 +1,162 @@
+
+import java.util.Vector;
+
+class Reservation {
+    private String reservationId;
+    private String customerName;
+    private double cost;
+
+    public Reservation(String reservationId, String customerName, double cost) {
+        this.reservationId = reservationId;
+        this.customerName = customerName;
+        this.cost = cost;
+    }
+
+    public String getReservationId() {
+        return reservationId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+}
+
+class FlightReservation {
+    private Reservation baseReservation;
+    private String flightNumber;
+    private String origin;
+    private String destination;
+    private String departureDate;
+
+    public FlightReservation(String reservationId, String customerName, double cost, String flightNumber, String origin, String destination, String departureDate) {
+        this.baseReservation = new Reservation(reservationId, customerName, cost);
+        this.flightNumber = flightNumber;
+        this.origin = origin;
+        this.destination = destination;
+        this.departureDate = departureDate;
+    }
+
+    public String getReservationId() {
+        return baseReservation.getReservationId();
+    }
+
+    public String getCustomerName() {
+        return baseReservation.getCustomerName();
+    }
+
+    public double getCost() {
+        return baseReservation.getCost();
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureDate() {
+        return departureDate;
+    }
+}
+
+class HotelReservation {
+    private Reservation baseReservation;
+    private String hotelName;
+    private String location;
+    private String checkInDate;
+    private String checkOutDate;
+
+    public HotelReservation(String reservationId, String customerName, double cost, String hotelName, String location, String checkInDate, String checkOutDate) {
+        this.baseReservation = new Reservation(reservationId, customerName, cost);
+        this.hotelName = hotelName;
+        this.location = location;
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+    }
+
+    public String getReservationId() {
+        return baseReservation.getReservationId();
+    }
+
+    public String getCustomerName() {
+        return baseReservation.getCustomerName();
+    }
+
+    public double getCost() {
+        return baseReservation.getCost();
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getCheckInDate() {
+        return checkInDate;
+    }
+
+    public String getCheckOutDate() {
+        return checkOutDate;
+    }
+}
+
+class FlightHotelReservation {
+    private Vector<FlightReservation> flightReservations;
+    private Vector<HotelReservation> hotelReservations;
+
+    public FlightHotelReservation() {
+        flightReservations = new Vector<>();
+        hotelReservations = new Vector<>();
+    }
+
+    public void searchForFlights(String origin, String destination, String departureDate) {
+        // Implement flight search logic using the provided parameters
+        System.out.println("Searching for flights from " + origin + " to " + destination +
+                " on " + departureDate);
+        // Display search results
+    }
+
+    public void searchForHotels(String location, String checkInDate, String checkOutDate) {
+        // Implement hotel search logic using the provided parameters
+        System.out.println("Searching for hotels in " + location + " from " + checkInDate +
+                " to " + checkOutDate);
+        // Display search results
+    }
+
+    public void bookFlightReservation(String reservationId, String customerName, double cost, String flightNumber, String origin, String destination, String departureDate) {
+        FlightReservation flightReservation = new FlightReservation(reservationId, customerName, cost, flightNumber, origin, destination, departureDate);
+        flightReservations.add(flightReservation);
+        System.out.println("Flight Reservation booked. ID: " + reservationId + ", Customer: " + customerName);
+    }
+
+    public void bookHotelReservation(String reservationId, String customerName, double cost, String hotelName, String location, String checkInDate, String checkOutDate) {
+        HotelReservation hotelReservation = new HotelReservation(reservationId, customerName, cost, hotelName, location, checkInDate, checkOutDate);
+        hotelReservations.add(hotelReservation);
+        System.out.println("Hotel Reservation booked. ID: " + reservationId + ", Customer: " + customerName);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        FlightHotelReservation reservationSystem = new FlightHotelReservation();
+
+        reservationSystem.searchForFlights("New York", "Los Angeles", "2023-11-15");
+        reservationSystem.searchForHotels("Los Angeles", "2023-11-15", "2023-11-20");
+
+        reservationSystem.bookFlightReservation("FL12345", "John Doe", 500.0, "UA123", "New York", "Los Angeles", "2023-11-15");
+        reservationSystem.bookHotelReservation("HT67890", "Jane Smith", 200.0, "Hotel ABC", "Los Angeles", "2023-11-15", "2023-11-20");
+    }
+}
