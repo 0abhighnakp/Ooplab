@@ -1,89 +1,108 @@
 import java.util.Scanner;
 
-class Employee {
-    String name;
-    int age;
-    String phoneNumber;
-    String address;
-    double salary;
+class Employee
 
-    public void printSalary() {
-        System.out.println("Salary: " + salary);
-    }
+{
 
-    public void setEmployeeDetails() {
-        Scanner scanner = new Scanner(System.in);
+String name;
 
-        System.out.print("Name: ");
-        name = scanner.nextLine();
-        System.out.print("Age: ");
-        age = scanner.nextInt();
-        System.out.print("Phone Number: ");
-        phoneNumber = scanner.next();
-        scanner.nextLine(); // Consume newline character
-        System.out.print("Address: ");
-        address = scanner.nextLine();
-        System.out.print("Salary: ");
-        salary = scanner.nextDouble();
-    }
+int age;
+
+long phone;
+
+String address;
+
+long salary;
+
+void printSalary(long salary)
+
+{
+
+System.out.println("Salary: "+salary);
+
 }
 
-class Officer extends Employee {
-    String specialization;
-
-    public void setOfficerDetails() {
-        setEmployeeDetails(); // Reuse the base class method
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Specialization: ");
-        specialization = scanner.nextLine();
-    }
-
-    public void printOfficerDetails() {
-        System.out.println("\nOfficer Details:");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Address: " + address);
-        System.out.println("Salary: " + salary);
-        System.out.println("Specialization: " + specialization);
-        printSalary();
-    }
 }
 
-class Manager extends Employee {
-    String department;
+class Officer extends Employee
 
-    public void setManagerDetails() {
-        setEmployeeDetails(); // Reuse the base class method
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Department: ");
-        department = scanner.nextLine();
-    }
+{
 
-    public void printManagerDetails() {
-        System.out.println("\nManager Details:");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println("Address: " + address);
-        System.out.println("Salary: " + salary);
-        System.out.println("Department: " + department);
-        printSalary();
-    }
+String specialization;
+
+String department;
+
 }
 
-public class EmployeeProgram {
-    public static void main(String[] args) {
-        Officer officer = new Officer();
-        Manager manager = new Manager();
+class Manager extends Employee
+    {
 
-        System.out.println("Enter Officer Details:");
-        officer.setOfficerDetails();
+String specialization;
 
-        System.out.println("\nEnter Manager Details:");
-        manager.setManagerDetails();
+String department;
 
-        officer.printOfficerDetails();
-        manager.printManagerDetails();
-    }
+}
+
+class Employee2
+
+{
+
+public static void main(String args[])
+
+{
+
+Officer off1 = new Officer();
+
+off1.name="sneha";
+
+off1.age=19;
+
+off1.phone=986745678l;
+
+off1.address="My house, kakkanad, kochi";
+
+off1.salary=34567;
+
+System.out.println("Details of officer:");
+
+System.out.println("Name : "+off1.name);
+
+System.out.println("Age : "+off1.age);
+
+System.out.println("Phone number: "+off1.phone);
+
+System.out.println("Address: "+off1.address);
+
+System.out.println("Salary: "+off1.salary);
+
+System.out.println("******************************");
+
+Manager man1= new Manager();
+
+man1.name="sona";
+
+man1.age=20;
+
+man1.phone=4645342367l;
+
+man1.address="My house, thrikkakara, kochi";
+
+man1.salary=54236;
+
+System.out.println("Details of manager:");
+
+System.out.println("Name : "+man1.name);
+
+System.out.println("Age : "+man1.age);
+
+System.out.println("Phone number: "+man1.phone);
+
+System.out.println("Address: "+man1.address);
+
+System.out.println("Salary: "+man1.salary);
+
+System.out.println("******************************");
+
+}
+
 }
