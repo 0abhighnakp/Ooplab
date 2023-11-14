@@ -1,0 +1,74 @@
+import java.util.Scanner;
+
+abstract class Shapes
+
+{
+
+abstract void numberOfSides() ;
+
+}
+
+class Rectangle extends Shapes
+
+{
+
+void numberOfSides()
+
+{
+
+System.out.println("Number of sides in Rectangle= 4");
+
+}
+
+}
+
+class Triangle extends Shapes
+
+{
+
+void numberOfSides()
+
+    {
+        System.out.println("Number of sides in Triangle= 3");}
+
+}
+
+}
+
+class Hexagon extends Shapes
+
+{
+
+void numberOfSides()
+
+{
+
+System.out.println("Number of sides in Hexagon= 6");}
+
+}
+
+}
+
+class inh2
+
+{
+
+public static void main(String arg[])
+
+{
+
+Shapes ob1= new Rectangle();
+
+Shapes ob2= new Triangle();
+
+Shapes ob3= new Hexagon();
+
+ob1.numberOfSides()
+
+ob2.numberOfSides();
+
+ob3.numberOfSides();
+
+}
+
+}
