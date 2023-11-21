@@ -1,0 +1,58 @@
+import java.io.*;
+
+class FileReadWrite 
+{
+   public static void main(String[] args) 
+   {
+      FileInputStream f1 = null;
+      FileOutputStream f2 = null;
+      
+      try
+      {
+      	  f1 = new FileInputStream(args[0]);
+      	  f2 = new FileOutputStream(args[1]);
+      }
+      
+       catch (FileNotFoundException e) 
+       {
+           System.out.println("File not found: " + e.getMessage());
+       } 
+       
+       
+       try
+       {
+       		int i;
+       		do
+       		{
+       			i = f1.read();
+       			
+       			if(i != -1)
+       			{
+       				f2.write(i);
+       			}
+       			
+       				
+       		}while(i != -1);
+       	}
+      catch (IOException e) 
+       {
+           System.out.println("Error reading/writing file: " + e.getMessage());
+       }
+       	
+       	finally
+       	{
+       		try
+       		{
+       			f1.close();
+       			f2.close();
+       		}
+       		catch (IOException e) 
+       		{
+           		System.out.println("Error in closing" + e.getMessage());
+       		}
+       		
+       	}
+       
+       				
+   }
+}
